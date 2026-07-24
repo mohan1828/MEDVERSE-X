@@ -1,116 +1,64 @@
-from pydantic import BaseModel, Field
-from typing import List, Optional, Dict, Any
+from pydantic import BaseModel, EmailStr, Field
+from typing import Optional, List, Dict, Any
 
-# Auth Schemas
 class UserLogin(BaseModel):
     email: str
-    password: str
+    password: Optional[str] = "password123"
+    role: Optional[str] = "patient"
+    rememberMe: Optional[bool] = True
 
 class UserSignup(BaseModel):
+    name: str
     email: str
-    password: str
-    full_name: str
-    role: str = "patient"  # patient, doctor, admin, emergency
+    phone: Optional[str] = None
+    password: Optional[str] = "password123"
+    country: Optional[str] = "United States"
+    role: Optional[str] = "patient"
 
 class Token(BaseModel):
     access_token: str
-    token_type: str = "bearer"
+    token_type: str
     user: Dict[str, Any]
 
-# Patient Vitals & Health Input
-class VitalsInput(BaseModel):
-    age: int = 42
-    gender: str = "Male"
-    systolic_bp: int = 120
-    diastolic_bp: int = 80
-    heart_rate: int = 72
-    glucose: int = 95
-    cholesterol: int = 185
-    bmi: float = 23.5
-    smoking_history: bool = False
-    physical_activity_hours: float = 4.5
-    sleep_hours: float = 7.5
+class PatientCreate(BaseModel):
+    name: str
+    age: int
+    gender: str
+    blood_group: str
+    height_cm: Optional[int] = 180
+    weight_kg: Optional[int] = 75
+    allergies: Optional[List[str]] = []
+    medications: Optional[List[str]] = []
 
-# Disease Risk Output with SHAP
-class SHAPFeature(BaseModel):
-    feature: str
-    impact: float
-    description: str
+class DoctorRegister(BaseModel):
+    name: str
+    email: str
+    license_no: str
+    specialization: str
+    hospital: str
+    experience_yrs: int
+    consultation_fee: Optional[float] = 200.0
 
-class DiseaseRiskResult(BaseModel):
-    disease: str
-    risk_score: float  # Percentage 0 - 100
-    risk_level: str    # Low, Moderate, High, Critical
-    confidence: float  # Model confidence %
-    key_factors: List[str]
-    shap_features: List[SHAPFeature]
+class HospitalRegister(BaseModel):
+    name: str
+    license_no: str
+    address: str
+    city: str
+    icu_capacity: int
+    emergency_beds: int
 
-class OverallHealthScoreResult(BaseModel):
-    health_score: int  # 0 - 100
-    metabolic_score: int
-    cardiovascular_score: int
-    lifestyle_score: int
-    cognitive_score: int
-    recommendations: List[str]
-    disease_risks: List[DiseaseRiskResult]
-
-# AI Doctor Chat Schemas
-class ChatMessage(BaseModel):
-    role: str  # user, assistant, system
-    content: str
-
-class AIDoctorRequest(BaseModel):
+class SymptomCheck(BaseModel):
     symptoms: List[str]
-    chat_history: List[ChatMessage] = []
-    patient_vitals: Optional[VitalsInput] = None
+    patient_id: Optional[str] = "usr-p001"
+    age: Optional[int] = 38
+    gender: Optional[str] = "Male"
 
-class AIDoctorResponse(BaseModel):
-    diagnosis_reasoning: str
-    differential_diagnoses: List[Dict[str, Any]]
-    recommended_specialist: str
-    urgency_level: str
-    confidence_score: float
-    ai_agent_pipeline: List[str]
-    suggested_questions: List[str]
+class PredictionRequest(BaseModel):
+    disease_type: str
+    metrics: Dict[str, Any]
 
-# Hospital & Doctor Schemas
-class HospitalQuery(BaseModel):
-    lat: float = 12.9716
-    lng: float = 77.5946
-    specialty: Optional[str] = None
-    max_distance_km: float = 25.0
-
-class AppointmentBookingRequest(BaseModel):
-    doctor_id: str
-    doctor_name: str
-    hospital_name: str
-    patient_name: str
-    appointment_date: str
-    appointment_time: str
-    consultation_type: str  # In-Person, Video Call
-    symptoms_note: Optional[str] = ""
-
-# Emergency SOS Schemas
-class EmergencySOSRequest(BaseModel):
+class SOSRequest(BaseModel):
+    patient_id: str
     lat: float
     lng: float
-    patient_id: str
-    trigger_type: str = "Manual SOS Button"
-    vital_alerts: List[str] = []
-
-class EmergencySOSResponse(BaseModel):
-    sos_id: str
-    status: str
-    dispatched_ambulance: Dict[str, Any]
-    nearest_hospital: Dict[str, Any]
-    notified_contacts: List[str]
-    eta_minutes: int
-    emergency_qr_url: str
-
-# EternaMind Schemas
-class TimeCapsuleCreate(BaseModel):
-    title: str
-    recipient: str
-    unlock_date: str
-    memory_type: str
-    content: str
+    trigger_reason: Optional[str] = "ST-Elevation Arrhythmia Threshold Alert"

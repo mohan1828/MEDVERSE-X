@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: medverse-x-backend
+    env: python
+    region: oregon
+    buildCommand: "pip install -r backend/requirements.txt"
+    startCommand: "uvicorn backend.app.main:app --host 0.0.0.0 --port $PORT"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.0
+      - key: MONGODB_URL
+        sync: false
+      - key: SECRET_KEY
+        generateValue: true
