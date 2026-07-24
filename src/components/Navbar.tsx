@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Activity, ShieldAlert, Cpu, HeartPulse, Brain, BarChart3, User, LayoutDashboard, Shield, QrCode, FileText, Network } from 'lucide-react';
+import { Activity, ShieldAlert, Cpu, HeartPulse, Brain, BarChart3, User, LayoutDashboard, Shield, QrCode, FileText, Network, LogOut } from 'lucide-react';
+import { useAuth } from '../context/AuthContext';
 
 export type NavTab = 
   | 'dashboard'
@@ -29,6 +30,8 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenQRModal,
   onOpenPDFModal,
 }) => {
+  const { user, logout } = useAuth();
+
   const navItems: { id: NavTab; label: string; icon: React.ReactNode }[] = [
     { id: 'dashboard', label: 'Dashboard', icon: <LayoutDashboard className="w-4 h-4 text-[#00E5FF]" /> },
     { id: 'health-intelligence', label: 'Health Intelligence', icon: <HeartPulse className="w-4 h-4 text-[#00FFB2]" /> },
@@ -137,6 +140,17 @@ export const Navbar: React.FC<NavbarProps> = ({
             <ShieldAlert className="w-4 h-4" />
             <span>{isEmergencyActive ? 'Emergency Active' : 'Emergency SOS'}</span>
           </motion.button>
+
+          {user && (
+            <button
+              onClick={logout}
+              title={`Signed in as ${user.name} (${user.role}). Click to Logout.`}
+              className="p-2 rounded-xl bg-slate-900 border border-slate-700 text-slate-300 hover:text-white hover:border-rose-500/50 transition-all text-xs font-mono font-bold flex items-center gap-1.5"
+            >
+              <LogOut className="w-4 h-4 text-slate-400" />
+              <span className="hidden md:inline">Sign Out</span>
+            </button>
+          )}
         </div>
 
       </div>

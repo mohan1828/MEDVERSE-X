@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Navbar, type NavTab } from './components/Navbar';
 import { ParticleBackground } from './components/ParticleBackground';
 import { DashboardView } from './components/views/DashboardView';
@@ -13,17 +13,39 @@ import { DemoVideoModal } from './components/modals/DemoVideoModal';
 import { MedicalQRModal } from './components/modals/MedicalQRModal';
 import { PDFExportModal } from './components/modals/PDFExportModal';
 
-export function App() {
+import { AuthProvider, useAuth } from './context/AuthContext';
+import { LandingPage } from './components/auth/LandingPage';
+import { LoginPage } from './components/auth/LoginPage';
+import { SignupPage } from './components/auth/SignupPage';
+import { OTPVerificationModal } from './components/auth/OTPVerificationModal';
+import { ForgotPasswordModal } from './components/auth/ForgotPasswordModal';
+import { OnboardingWizard } from './components/auth/OnboardingWizard';
+
+function MainContent() {
+  const { screen, targetTab } = useAuth();
   const [activeTab, setActiveTab] = useState<NavTab>('dashboard');
   const [isEmergencyActive, setIsEmergencyActive] = useState<boolean>(false);
   const [isDemoOpen, setIsDemoOpen] = useState<boolean>(false);
   const [isQRModalOpen, setIsQRModalOpen] = useState<boolean>(false);
   const [isPDFModalOpen, setIsPDFModalOpen] = useState<boolean>(false);
 
+  useEffect(() => {
+    if (targetTab) {
+      setActiveTab(targetTab);
+    }
+  }, [targetTab]);
+
   const triggerEmergency = () => {
     setIsEmergencyActive(true);
     setActiveTab('emergency-center');
   };
+
+  if (screen === 'landing') return <LandingPage />;
+  if (screen === 'login') return <LoginPage />;
+  if (screen === 'signup') return <SignupPage />;
+  if (screen === 'otp') return <OTPVerificationModal />;
+  if (screen === 'forgot-password') return <ForgotPasswordModal />;
+  if (screen === 'onboarding') return <OnboardingWizard />;
 
   return (
     <div className="min-h-screen bg-[#0B1220] text-slate-100 relative font-sans selection:bg-[#00E5FF] selection:text-black">
@@ -31,7 +53,7 @@ export function App() {
       {/* Background Neural Particle Canvas */}
       <ParticleBackground />
 
-      {/* Primary Cyber Navbar (7 Modules) */}
+      {/* Primary Cyber Navbar (7 Modules + Auth Badge) */}
       <Navbar
         activeTab={activeTab}
         setActiveTab={setActiveTab}
@@ -114,6 +136,14 @@ export function App() {
       </footer>
 
     </div>
+  );
+}
+
+export function App() {
+  return (
+    <AuthProvider>
+      <MainContent />
+    </AuthProvider>
   );
 }
 
