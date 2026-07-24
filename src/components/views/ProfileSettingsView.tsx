@@ -17,7 +17,7 @@ export const ProfileSettingsView: React.FC = () => {
   ];
 
   return (
-    <div className="app-container space-y-8 pb-16">
+    <div className="app-container space-y-12 pb-16">
       
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 glass-panel p-6 rounded-3xl">
         <div className="flex items-center gap-3">

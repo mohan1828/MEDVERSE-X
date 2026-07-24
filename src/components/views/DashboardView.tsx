@@ -31,19 +31,20 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onNavigate, onTrig
   ];
 
   return (
-    <div className="app-container space-y-8 pb-16">
+    <div className="app-container space-y-12 pb-16">
       
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 glass-panel p-6 rounded-3xl">
+      {/* 1. Page Header Banner */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 glass-panel p-6 sm:p-8 rounded-3xl">
         <div>
           <div className="flex items-center gap-3">
-            <h1 className="text-2xl lg:text-3xl font-extrabold text-white">
+            <h1 className="heading-page">
               Welcome back, {mockPatient.name}
             </h1>
-            <span className="px-3 py-1 rounded-full bg-[#00FFB2]/10 border border-[#00FFB2]/30 text-[#00FFB2] text-xs font-mono font-bold">
+            <span className="px-3.5 py-1 rounded-full bg-[#00FFB2]/10 border border-[#00FFB2]/30 text-[#00FFB2] text-xs font-mono font-bold">
               Prime Condition
             </span>
           </div>
-          <p className="text-xs text-slate-300 font-mono mt-1">
+          <p className="text-xs text-slate-300 font-mono mt-2">
             Twin ID: {mockPatient.twinId} • Biological Age: <strong className="text-[#00FFB2]">{mockPatient.bodyAge} yrs</strong> (Chronological: {mockPatient.age})
           </p>
         </div>
@@ -57,27 +58,31 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ onNavigate, onTrig
         </div>
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-        {quickActions.map((qa, i) => (
-          <button
-            key={i}
-            onClick={() => {
-              if (qa.action) qa.action();
-              else onNavigate(qa.tab);
-            }}
-            className="p-4 rounded-2xl glass-panel hover:border-[#00E5FF]/40 text-left transition-all flex items-center justify-between group"
-          >
-            <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center">
-                {qa.icon}
+      {/* 2. Quick Actions Section */}
+      <div className="space-y-4">
+        <h2 className="heading-section">Platform Direct Access</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {quickActions.map((qa, i) => (
+            <button
+              key={i}
+              onClick={() => {
+                if (qa.action) qa.action();
+                else onNavigate(qa.tab);
+              }}
+              className="p-6 rounded-3xl glass-panel hover:border-[#00E5FF]/40 text-left transition-all flex items-center justify-between group"
+            >
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center">
+                  {qa.icon}
+                </div>
+                <span className="text-xs font-bold text-white group-hover:text-[#00E5FF] transition-colors">
+                  {qa.label}
+                </span>
               </div>
-              <span className="text-xs font-bold text-white group-hover:text-[#00E5FF] transition-colors">
-                {qa.label}
-              </span>
-            </div>
-            <ArrowRight className="w-4 h-4 text-slate-500 group-hover:translate-x-1 group-hover:text-[#00E5FF] transition-all" />
-          </button>
-        ))}
+              <ArrowRight className="w-4 h-4 text-slate-500 group-hover:translate-x-1 group-hover:text-[#00E5FF] transition-all" />
+            </button>
+          ))}
+        </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">

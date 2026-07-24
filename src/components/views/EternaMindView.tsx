@@ -41,9 +41,9 @@ export const EternaMindView: React.FC = () => {
   ];
 
   return (
-    <div className="app-container space-y-8 pb-16">
+    <div className="app-container space-y-12 pb-16">
       
-      <div className="glass-panel p-6 rounded-3xl grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 text-center">
+      <div className="glass-panel p-6 sm:p-8 rounded-3xl grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 text-center">
         <div className="space-y-1">
           <div className="text-2xl font-extrabold font-mono text-gradient-purple">
             {mockEternaMindData.legacyScore}%

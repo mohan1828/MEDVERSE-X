@@ -128,7 +128,7 @@ export const LandingPage: React.FC = () => {
         </div>
 
         {/* Live Metrics Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 font-mono text-xs max-w-4xl mx-auto pt-6">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 font-mono text-xs max-w-4xl mx-auto pt-6">
           <div className="p-4 rounded-2xl glass-panel border border-[#00E5FF]/20 space-y-1">
             <div className="text-slate-400">Connected Hospitals</div>
             <div className="text-2xl font-extrabold text-[#00FFB2]">142 Nodes</div>
