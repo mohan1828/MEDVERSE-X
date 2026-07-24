@@ -33,7 +33,7 @@ export const EmergencyCenterView: React.FC = () => {
   ];
 
   return (
-    <div className="space-y-8 max-w-7xl mx-auto px-4 pb-16">
+    <div className="app-container space-y-8 pb-16">
       
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 glass-panel-danger p-6 rounded-3xl animate-pulse">
         <div className="flex items-center gap-4">

@@ -44,7 +44,7 @@ export const FederatedEnterpriseDashboard: React.FC = () => {
       </div>
 
       {/* Primary 12-Card Key Metrics Grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
         
         <div className="p-5 rounded-2xl glass-panel border border-[#00E5FF]/20 space-y-2">
           <div className="flex items-center justify-between text-slate-400">

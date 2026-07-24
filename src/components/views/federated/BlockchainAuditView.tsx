@@ -29,7 +29,7 @@ export const BlockchainAuditView: React.FC = () => {
       </div>
 
       {/* Ledger Stats Banner */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 font-mono text-xs">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 font-mono text-xs">
         <div className="p-4 rounded-2xl glass-panel border border-[#00FFB2]/30 space-y-1">
           <div className="text-slate-400">Total Validated Blocks</div>
           <div className="text-2xl font-extrabold text-[#00FFB2]">1,048 Blocks</div>

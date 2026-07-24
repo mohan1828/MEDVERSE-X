@@ -22,7 +22,7 @@ export const HealthcareInsightsView: React.FC = () => {
       </div>
 
       {/* Disease Trends & Regional Risk Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 font-mono text-xs">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 font-mono text-xs">
         {mockHealthcareInsights.diseaseTrends.map((item, i) => (
           <div key={i} className="p-5 rounded-2xl glass-panel border border-[#00E5FF]/20 space-y-3">
             <div className="flex items-center justify-between text-slate-400">

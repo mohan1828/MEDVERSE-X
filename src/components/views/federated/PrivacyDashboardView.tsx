@@ -38,7 +38,7 @@ export const PrivacyDashboardView: React.FC = () => {
       </div>
 
       {/* Top 6 Privacy Guarantee Cards */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 font-mono text-xs">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 font-mono text-xs">
         
         <div className="p-4 rounded-2xl glass-panel border border-[#00FFB2]/30 space-y-2 text-center">
           <EyeOff className="w-5 h-5 text-[#00FFB2] mx-auto" />

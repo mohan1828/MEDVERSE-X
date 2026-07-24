@@ -30,7 +30,7 @@ export const ModelPerformanceView: React.FC = () => {
       </div>
 
       {/* Top 4 Performance Badges */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 font-mono">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 font-mono">
         <div className="p-5 rounded-2xl glass-panel border border-[#00FFB2]/30 space-y-1">
           <div className="text-xs text-slate-400">Training Loss</div>
           <div className="text-2xl font-extrabold text-[#00FFB2]">0.046</div>

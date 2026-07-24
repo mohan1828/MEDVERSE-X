@@ -99,8 +99,8 @@ export function App() {
       />
 
       {/* Footer */}
-      <footer className="relative z-10 border-t border-[#00E5FF]/15 bg-[#0B1220]/90 py-8 px-4 text-center text-xs font-mono text-slate-400">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <footer className="relative z-10 border-t border-[#00E5FF]/15 bg-[#0B1220]/90 py-8 text-center text-xs font-mono text-slate-400">
+        <div className="app-container flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
             <span className="font-bold text-gradient-cyan text-sm">MEDVERSE-X</span>
             <span>• Enterprise Healthcare Operating System & EternaMind X</span>

@@ -47,7 +47,7 @@ export const FederatedIntelligenceView: React.FC = () => {
   ];
 
   return (
-    <div className="space-y-8 max-w-7xl mx-auto px-4 pb-16">
+    <div className="app-container space-y-8 pb-16">
       
       {/* Top Banner Tagline Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 glass-panel p-6 rounded-3xl border border-[#00E5FF]/30 shadow-cyan-glow">

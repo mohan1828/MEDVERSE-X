@@ -59,7 +59,7 @@ export const ResearchCenterView: React.FC = () => {
 
       {/* Main Content Areas */}
       {activeTab === 'marketplace' && (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 font-mono text-xs">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 font-mono text-xs">
           {mockSupportedModels.slice(0, 4).map((model) => (
             <div key={model.id} className="p-5 rounded-2xl glass-panel border border-[#00E5FF]/20 space-y-4">
               <div className="flex items-center justify-between">
