@@ -1,16 +1,16 @@
 # 🏥 MEDVERSE-X AI Healthcare Platform
 
-> **An AI-powered healthcare ecosystem designed to improve digital healthcare through intelligent assistance, predictive analytics, and smart patient management.**
+> **Hackathon Progress – Initial Development (First 4 Hours)**
 
 ---
 
-# 👥 Team Details
+# Team Details
 
 **Project Name:** MEDVERSE-X AI Healthcare Platform
 
 **Team Name:** **GRID GUARD**
 
-### Team Members
+**Team Members:**
 
 1. Saravana Nageswar B
 2. Pranavh H
@@ -21,58 +21,68 @@
 
 ---
 
-# 📌 Problem Statement
+# Problem Statement
 
-The healthcare industry continues to face challenges such as fragmented patient records, delayed diagnosis, inefficient appointment management, and limited access to intelligent healthcare support. Existing healthcare platforms often operate independently, making it difficult for patients and healthcare professionals to access comprehensive medical information efficiently.
-
----
-
-# 💡 Proposed Solution
-
-MEDVERSE-X is an AI-powered healthcare platform that aims to create a unified digital healthcare ecosystem. The platform is designed to integrate AI-driven health assistance, patient management, predictive analytics, and healthcare visualization into a single intelligent solution that enhances accessibility, efficiency, and informed decision-making.
+Modern healthcare systems often suffer from fragmented patient data, delayed diagnosis, limited accessibility, and inefficient communication between patients and healthcare providers. Existing solutions are typically isolated and do not provide an integrated, AI-assisted healthcare experience.
 
 ---
 
-# 🚀 Current Progress (First 4 Hours)
+# Proposed Solution
+
+MEDVERSE-X is an AI-powered healthcare platform being developed to bring together intelligent health assistance, patient management, predictive analytics, and healthcare visualization into a single digital ecosystem.
+
+The objective is to simplify healthcare interactions while leveraging AI to improve accessibility and decision-making.
+
+---
+
+# Current Progress (First 4 Hours)
 
 ## ✅ Completed
 
-- Project ideation and requirement analysis
+- Project planning and architecture discussion
 - Technology stack finalized
 - GitHub repository created
 - React + Vite project initialized
 - TypeScript configuration completed
-- Tailwind CSS integrated
-- Initial project folder structure created
-- Base UI components developed
-- Landing page design started
+- Tailwind CSS configured
+- Base project structure created
+- Initial UI component structure organized
+- Routing and application skeleton started
 - Repository documentation initiated
 
-## 🚧 Currently Working On
+## 🚧 In Progress
 
-- Landing Page UI
-- Responsive Design
-- Dashboard Layout
-- Reusable UI Components
+- Landing page development
+- Dashboard UI
+- Authentication flow
+- Component integration
 
----
+## ⏳ Planned Next
 
-# ✨ Planned Features
-
-- 🤖 AI Health Assistant
-- 👨‍⚕️ Doctor Dashboard
-- 👤 Patient Dashboard
-- 📅 Appointment Management
-- 📊 Healthcare Analytics
-- 🧠 AI Disease Prediction
-- 📋 Electronic Medical Records
-- 💊 Prescription Management
-- 🔐 Secure Authentication
-- 📱 Responsive User Interface
+- AI Health Assistant
+- Disease Prediction Module
+- Patient Dashboard
+- Doctor Dashboard
+- Database Integration
+- Backend APIs
 
 ---
 
-# 🛠 Tech Stack
+# Features (Planned)
+
+- AI Healthcare Assistant
+- Patient Dashboard
+- Doctor Portal
+- Appointment Management
+- Health Analytics
+- Disease Prediction
+- Medical Reports
+- Secure Authentication
+- Responsive UI
+
+---
+
+# Technology Stack
 
 ## Frontend
 
@@ -81,10 +91,10 @@ MEDVERSE-X is an AI-powered healthcare platform that aims to create a unified di
 - Vite
 - Tailwind CSS
 
-## UI Libraries
+## UI
 
 - Framer Motion
-- Lucide React
+- Lucide Icons
 
 ## Version Control
 
@@ -93,128 +103,30 @@ MEDVERSE-X is an AI-powered healthcare platform that aims to create a unified di
 
 ## Planned Backend
 
-- Node.js
-- Express.js
-
-## Planned Database
-
+- Node.js / Express
 - MongoDB
+- REST APIs
 
-## Planned AI/ML
+## Planned AI
 
 - Python
-- Machine Learning
+- Machine Learning Models
+- Healthcare Prediction Algorithms
 
 ---
 
-# 🏗 System Architecture
+# Initial Project Architecture
 
 ```text
-                    Users
-                      │
-                      ▼
-          React + TypeScript Frontend
-                      │
-          Reusable UI Components
-                      │
-          Backend APIs (Planned)
-                      │
-              AI Services
-                      │
-             MongoDB Database
-```
-
----
-
-# 🔄 Current Workflow
-
-```text
-Problem Identification
-          │
-          ▼
-Requirement Analysis
-          │
-          ▼
-Project Planning
-          │
-          ▼
-GitHub Repository Setup
-          │
-          ▼
-Frontend Development
-          │
-          ▼
-Component Development
-          │
-          ▼
-Backend Integration (Upcoming)
-```
-
----
-
-# 📁 Project Structure
-
-```
-MEDVERSE-X/
-│
-├── public/
-│
-├── src/
-│   ├── assets/
-│   ├── components/
-│   │   ├── 3d/
-│   │   ├── modals/
-│   │   ├── ui/
-│   ├── hooks/
-│   ├── pages/
-│   ├── utils/
-│   ├── App.tsx
-│   └── main.tsx
-│
-├── package.json
-├── package-lock.json
-├── tailwind.config.js
-├── tsconfig.json
-├── vite.config.ts
-└── README.md
-```
-
----
-
-# ⚙️ Installation
-
-### Clone the repository
-
-```bash
-git clone https://github.com/mohan1828/MEDVERSE-X.git
-```
-
-### Navigate to the project directory
-
-```bash
-cd MEDVERSE-X
-```
-
-### Install dependencies
-
-```bash
-npm install
-```
-
----
-
-# ▶️ Usage
-
-Start the development server.
-
-```bash
-npm run dev
-```
-
-Open your browser and visit:
-
-```
-http://localhost:5173
-```
-
-The application will automatically reload whenever changes are made to the source code.
+                User
+                  │
+                  ▼
+      React + TypeScript Frontend
+                  │
+        Reusable UI Components
+                  │
+         Planned Backend APIs
+                  │
+             AI Services
+                  │
+             Database Layer
