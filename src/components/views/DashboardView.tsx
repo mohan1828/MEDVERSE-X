@@ -1,5 +1,5 @@
 import React from 'react';
-import { HeartPulse, Cpu, Shield, Zap, Stethoscope, Navigation, ArrowRight, CheckCircle2, Clock, Sparkles } from 'lucide-react';
+import { HeartPulse, Cpu, Shield, Stethoscope, Navigation, ArrowRight, CheckCircle2, Clock, Sparkles, Network } from 'lucide-react';
 import { GaugeChart } from '../ui/GaugeChart';
 import type { NavTab } from '../Navbar';
 import { mockPatient } from '../../data/mockPatientData';
@@ -12,8 +12,8 @@ interface DashboardViewProps {
 
 export const DashboardView: React.FC<DashboardViewProps> = ({ onNavigate, onTriggerEmergency }) => {
   const quickActions = [
+    { label: 'Federated Intelligence', tab: 'federated-intelligence' as NavTab, icon: <Network className="w-4 h-4 text-[#00FFB2] animate-pulse" /> },
     { label: 'Healthcare Navigator', tab: 'health-intelligence' as NavTab, icon: <Navigation className="w-4 h-4 text-[#00E5FF] animate-pulse" /> },
-    { label: 'Simulate Lifestyle Impact', tab: 'health-intelligence' as NavTab, icon: <Zap className="w-4 h-4 text-[#00FFB2]" /> },
     { label: 'Consult AI Doctor RAG', tab: 'ai-intelligence' as NavTab, icon: <Stethoscope className="w-4 h-4 text-[#00E5FF]" /> },
     { label: 'Trigger Emergency SOS', tab: 'emergency-center' as NavTab, icon: <Shield className="w-4 h-4 text-rose-400" />, action: onTriggerEmergency },
   ];

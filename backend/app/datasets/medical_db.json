@@ -1,0 +1,89 @@
+{
+  "hospitals": [
+    {
+      "id": "hosp-101",
+      "name": "MedVerse-X Academic Medical Center",
+      "address": "450 AI Healthcare Blvd, Silicon Valley, CA",
+      "rating": 4.9,
+      "beds_available": 42,
+      "icu_available": 8,
+      "trauma_center_level": "Level 1 Trauma",
+      "distance_km": 1.2,
+      "emergency_phone": "+1 (800) 555-9111",
+      "specialties": ["Cardiology", "Neurology", "Oncology", "Trauma Care", "Digital Twin Precision"]
+    },
+    {
+      "id": "hosp-102",
+      "name": "Apex Heart & Vascular Institute",
+      "address": "120 Cardiac Way, Metro City, CA",
+      "rating": 4.8,
+      "beds_available": 18,
+      "icu_available": 4,
+      "trauma_center_level": "Level 2 Cardiac Specialty",
+      "distance_km": 3.5,
+      "emergency_phone": "+1 (800) 555-4321",
+      "specialties": ["Interventional Cardiology", "Electrophysiology", "Vascular Surgery"]
+    },
+    {
+      "id": "hosp-103",
+      "name": "St. Jude Neuroscience & Emergency Hospital",
+      "address": "88 Neuro Lane, Innovation Park, CA",
+      "rating": 4.7,
+      "beds_available": 29,
+      "icu_available": 6,
+      "trauma_center_level": "Comprehensive Stroke Center",
+      "distance_km": 5.1,
+      "emergency_phone": "+1 (800) 555-8899",
+      "specialties": ["Neurology", "Neurosurgery", "Stroke Intervention", "Cognitive Health"]
+    }
+  ],
+  "doctors": [
+    {
+      "id": "doc-201",
+      "name": "Dr. Aris Thorne, MD",
+      "specialty": "Chief Cardiologist & AI Precision Health Lead",
+      "hospital": "MedVerse-X Academic Medical Center",
+      "experience_years": 16,
+      "rating": 4.98,
+      "consultation_fee": 180,
+      "available_slots": ["09:00 AM", "11:30 AM", "02:15 PM", "04:30 PM"]
+    },
+    {
+      "id": "doc-202",
+      "name": "Dr. Elena Rostova, MD, PhD",
+      "specialty": "Senior Neurologist & Stroke Specialist",
+      "hospital": "St. Jude Neuroscience & Emergency Hospital",
+      "experience_years": 14,
+      "rating": 4.95,
+      "consultation_fee": 210,
+      "available_slots": ["10:00 AM", "01:00 PM", "03:45 PM"]
+    },
+    {
+      "id": "doc-203",
+      "name": "Dr. Marcus Vance, MD",
+      "specialty": "Endocrinologist & Metabolic AI Specialist",
+      "hospital": "Apex Heart & Vascular Institute",
+      "experience_years": 12,
+      "rating": 4.89,
+      "consultation_fee": 160,
+      "available_slots": ["08:30 AM", "12:00 PM", "05:00 PM"]
+    }
+  ],
+  "blood_banks": [
+    {
+      "name": "Central Red Cross Blood Bank",
+      "types_available": {"O+": 24, "O-": 6, "A+": 18, "B+": 12, "AB+": 8},
+      "distance_km": 2.1,
+      "contact": "+1 (800) 555-BLOOD"
+    }
+  ],
+  "ambulances": [
+    {
+      "unit_code": "MED-AMB-09",
+      "driver_name": "Marcus Rodriguez",
+      "phone": "+1 (555) 911-0099",
+      "eta_minutes": 4,
+      "equipment": "Advanced Life Support (ALS) + Tele-ICU + ECG"
+    }
+  ]
+}

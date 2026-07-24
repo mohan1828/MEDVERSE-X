@@ -4,16 +4,21 @@ import { ParticleBackground } from './components/ParticleBackground';
 import { DashboardView } from './components/views/DashboardView';
 import { HealthIntelligenceView } from './components/views/HealthIntelligenceView';
 import { AIIntelligenceView } from './components/views/AIIntelligenceView';
+import { FederatedIntelligenceView } from './components/views/FederatedIntelligenceView';
 import { EternaMindView } from './components/views/EternaMindView';
 import { EmergencyCenterView } from './components/views/EmergencyCenterView';
 import { InsightsAnalyticsView } from './components/views/InsightsAnalyticsView';
 import { ProfileSettingsView } from './components/views/ProfileSettingsView';
 import { DemoVideoModal } from './components/modals/DemoVideoModal';
-// test content
+import { MedicalQRModal } from './components/modals/MedicalQRModal';
+import { PDFExportModal } from './components/modals/PDFExportModal';
+
 export function App() {
   const [activeTab, setActiveTab] = useState<NavTab>('dashboard');
   const [isEmergencyActive, setIsEmergencyActive] = useState<boolean>(false);
   const [isDemoOpen, setIsDemoOpen] = useState<boolean>(false);
+  const [isQRModalOpen, setIsQRModalOpen] = useState<boolean>(false);
+  const [isPDFModalOpen, setIsPDFModalOpen] = useState<boolean>(false);
 
   const triggerEmergency = () => {
     setIsEmergencyActive(true);
@@ -32,6 +37,8 @@ export function App() {
         setActiveTab={setActiveTab}
         isEmergencyActive={isEmergencyActive}
         triggerEmergency={triggerEmergency}
+        onOpenQRModal={() => setIsQRModalOpen(true)}
+        onOpenPDFModal={() => setIsPDFModalOpen(true)}
       />
 
       {/* Main Module Content Router */}
@@ -51,6 +58,10 @@ export function App() {
           <AIIntelligenceView />
         )}
 
+        {activeTab === 'federated-intelligence' && (
+          <FederatedIntelligenceView />
+        )}
+
         {activeTab === 'legacy-intelligence' && (
           <EternaMindView />
         )}
@@ -68,10 +79,23 @@ export function App() {
         )}
       </main>
 
-      {/* Demo Video Modal */}
+      {/* Interactive Production Modals */}
       <DemoVideoModal
         isOpen={isDemoOpen}
         onClose={() => setIsDemoOpen(false)}
+      />
+
+      <MedicalQRModal
+        isOpen={isQRModalOpen}
+        onClose={() => setIsQRModalOpen(false)}
+        patientId="MV-994812"
+        patientName="Alexander Vance"
+      />
+
+      <PDFExportModal
+        isOpen={isPDFModalOpen}
+        onClose={() => setIsPDFModalOpen(false)}
+        patientName="Alexander Vance"
       />
 
       {/* Footer */}

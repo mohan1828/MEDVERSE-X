@@ -1,11 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Activity, ShieldAlert, Cpu, HeartPulse, Brain, BarChart3, User, LayoutDashboard, Shield } from 'lucide-react';
+import { Activity, ShieldAlert, Cpu, HeartPulse, Brain, BarChart3, User, LayoutDashboard, Shield, QrCode, FileText, Network } from 'lucide-react';
 
 export type NavTab = 
   | 'dashboard'
   | 'health-intelligence'
   | 'ai-intelligence'
+  | 'federated-intelligence'
   | 'legacy-intelligence'
   | 'emergency-center'
   | 'insights-analytics'
@@ -16,18 +17,23 @@ interface NavbarProps {
   setActiveTab: (tab: NavTab) => void;
   isEmergencyActive: boolean;
   triggerEmergency: () => void;
+  onOpenQRModal?: () => void;
+  onOpenPDFModal?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
   activeTab,
   setActiveTab,
   isEmergencyActive,
-  triggerEmergency
+  triggerEmergency,
+  onOpenQRModal,
+  onOpenPDFModal,
 }) => {
   const navItems: { id: NavTab; label: string; icon: React.ReactNode }[] = [
     { id: 'dashboard', label: 'Dashboard', icon: <LayoutDashboard className="w-4 h-4 text-[#00E5FF]" /> },
     { id: 'health-intelligence', label: 'Health Intelligence', icon: <HeartPulse className="w-4 h-4 text-[#00FFB2]" /> },
     { id: 'ai-intelligence', label: 'AI Intelligence', icon: <Cpu className="w-4 h-4 text-[#00E5FF]" /> },
+    { id: 'federated-intelligence', label: 'Federated Network', icon: <Network className="w-4 h-4 text-[#00FFB2] animate-pulse" /> },
     { id: 'legacy-intelligence', label: 'Legacy Intelligence', icon: <Brain className="w-4 h-4 text-purple-400 animate-pulse" /> },
     { id: 'emergency-center', label: 'Emergency Center', icon: <Shield className="w-4 h-4 text-rose-500" /> },
     { id: 'insights-analytics', label: 'Insights & Analytics', icon: <BarChart3 className="w-4 h-4 text-[#00FFB2]" /> },
@@ -91,8 +97,26 @@ export const Navbar: React.FC<NavbarProps> = ({
           })}
         </nav>
 
-        {/* Right Emergency Trigger Button */}
-        <div className="flex items-center gap-3">
+        {/* Right Action Toolbar & Emergency SOS */}
+        <div className="flex items-center gap-2 sm:gap-3">
+          <button
+            onClick={onOpenQRModal}
+            title="Medical Emergency QR Profile"
+            className="p-2 rounded-xl bg-slate-900 border border-[#00E5FF]/30 text-[#00E5FF] hover:bg-[#00E5FF]/10 transition-all text-xs font-mono font-bold flex items-center gap-1.5"
+          >
+            <QrCode className="w-4 h-4" />
+            <span className="hidden sm:inline">QR Profile</span>
+          </button>
+
+          <button
+            onClick={onOpenPDFModal}
+            title="Export Clinical PDF Report"
+            className="p-2 rounded-xl bg-slate-900 border border-purple-500/30 text-purple-400 hover:bg-purple-500/10 transition-all text-xs font-mono font-bold flex items-center gap-1.5"
+          >
+            <FileText className="w-4 h-4" />
+            <span className="hidden sm:inline">Export PDF</span>
+          </button>
+
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -104,7 +128,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 setActiveTab('emergency-center');
               }
             }}
-            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-lg ${
+            className={`flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-lg ${
               isEmergencyActive || activeTab === 'emergency-center'
                 ? 'bg-gradient-to-r from-red-600 to-rose-700 text-white shadow-danger-glow animate-pulse border border-red-400'
                 : 'bg-gradient-to-r from-red-500/20 to-rose-600/20 text-rose-300 border border-rose-500/40 hover:bg-rose-600/40'

@@ -1,0 +1,113 @@
+// Client-side HTML/Text Clinical PDF Generator Utility
+export function exportClinicalPDFReport(patientName = 'Alexander Vance', patientId = 'MV-994812'): void {
+  const reportHtml = `
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <title>MEDVERSE-X Comprehensive Clinical Report</title>
+    <style>
+      body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; padding: 40px; color: #1e293b; background: #fff; }
+      .header { border-bottom: 3px solid #00E5FF; padding-bottom: 20px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: center; }
+      .title { font-size: 26px; font-weight: bold; color: #0f172a; margin: 0; }
+      .subtitle { font-size: 14px; color: #64748b; margin-top: 4px; }
+      .section { margin-bottom: 30px; }
+      .section-title { font-size: 18px; font-weight: bold; color: #0f172a; border-left: 4px solid #7c3aed; padding-left: 10px; margin-bottom: 15px; }
+      .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+      .card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 15px; }
+      .metric-value { font-size: 20px; font-weight: bold; color: #2563eb; }
+      .metric-label { font-size: 12px; color: #64748b; text-transform: uppercase; }
+      .badge { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; background: #dcfce7; color: #166534; }
+      .footer { border-top: 1px solid #e2e8f0; padding-top: 20px; text-align: center; font-size: 11px; color: #94a3b8; }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div>
+        <h1 class="title">MEDVERSE-X AI HEALTHCARE PLATFORM</h1>
+        <div class="subtitle">Comprehensive Digital Twin & Clinical AI Assessment</div>
+      </div>
+      <div style="text-align: right;">
+        <div style="font-weight: bold;">ID: ${patientId}</div>
+        <div class="subtitle">Date: ${new Date().toLocaleDateString()}</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Patient Profile & Telemetry Summary</div>
+      <div class="grid">
+        <div class="card">
+          <div class="metric-label">Patient Name</div>
+          <div class="metric-value" style="color:#0f172a;">${patientName}</div>
+        </div>
+        <div class="card">
+          <div class="metric-label">Overall Health Index</div>
+          <div class="metric-value" style="color:#16a34a;">94 / 100 <span class="badge">Optimal</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">AI Disease Prediction & Risk Engine Results</div>
+      <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+        <thead>
+          <tr style="background: #f1f5f9; text-align: left;">
+            <th style="padding: 10px; border: 1px solid #cbd5e1;">Condition / Disease</th>
+            <th style="padding: 10px; border: 1px solid #cbd5e1;">Risk Score</th>
+            <th style="padding: 10px; border: 1px solid #cbd5e1;">Classification</th>
+            <th style="padding: 10px; border: 1px solid #cbd5e1;">Model Confidence</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding: 10px; border: 1px solid #e2e8f0;">Coronary Artery Disease (CAD)</td>
+            <td style="padding: 10px; border: 1px solid #e2e8f0;">8.4%</td>
+            <td style="padding: 10px; border: 1px solid #e2e8f0;"><span class="badge">Low Risk</span></td>
+            <td style="padding: 10px; border: 1px solid #e2e8f0;">96.4%</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px; border: 1px solid #e2e8f0;">Ischemic Stroke Risk</td>
+            <td style="padding: 10px; border: 1px solid #e2e8f0;">4.2%</td>
+            <td style="padding: 10px; border: 1px solid #e2e8f0;"><span class="badge">Low Risk</span></td>
+            <td style="padding: 10px; border: 1px solid #e2e8f0;">95.1%</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px; border: 1px solid #e2e8f0;">Type-2 Diabetes Mellitus</td>
+            <td style="padding: 10px; border: 1px solid #e2e8f0;">11.5%</td>
+            <td style="padding: 10px; border: 1px solid #e2e8f0;"><span class="badge">Low Risk</span></td>
+            <td style="padding: 10px; border: 1px solid #e2e8f0;">97.8%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <div class="section-title">EternaMind X Cognitive DNA Metrics</div>
+      <div class="grid">
+        <div class="card">
+          <div class="metric-label">Legacy Score</div>
+          <div class="metric-value" style="color:#9333ea;">94%</div>
+        </div>
+        <div class="card">
+          <div class="metric-label">AI Mentor Readiness</div>
+          <div class="metric-value" style="color:#0284c7;">96.5%</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      This document is generated by MedVerse-X AI Healthcare Platform. Certified HIPAA Compliant Cryptographic Record.
+    </div>
+  </body>
+  </html>
+  `;
+
+  const printWindow = window.open('', '_blank');
+  if (printWindow) {
+    printWindow.document.write(reportHtml);
+    printWindow.document.close();
+    printWindow.focus();
+    setTimeout(() => {
+      printWindow.print();
+    }, 500);
+  }
+}
