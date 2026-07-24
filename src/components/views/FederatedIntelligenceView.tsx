@@ -77,7 +77,7 @@ export const FederatedIntelligenceView: React.FC = () => {
       </div>
 
       {/* Sub-Navigation Bar */}
-      <div className="flex overflow-x-auto gap-2 p-1.5 rounded-2xl bg-slate-900/90 border border-[#00E5FF]/20 scrollbar-none">
+      <div className="flex flex-wrap lg:flex-nowrap overflow-x-auto gap-2 p-1.5 rounded-2xl bg-slate-900/90 border border-[#00E5FF]/20">
         {subNavItems.map((item) => {
           const isActive = subTab === item.id;
           return (

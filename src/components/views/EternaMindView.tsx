@@ -93,7 +93,7 @@ export const EternaMindView: React.FC = () => {
         </div>
       </div>
 
-      <div className="flex overflow-x-auto gap-2 p-1.5 rounded-2xl bg-slate-900/90 border border-purple-500/30 scrollbar-none">
+      <div className="flex flex-wrap lg:flex-nowrap overflow-x-auto gap-2 p-1.5 rounded-2xl bg-slate-900/90 border border-purple-500/30">
         {subNavItems.map((item) => {
           const isActive = subTab === item.id;
           return (

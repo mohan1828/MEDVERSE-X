@@ -72,15 +72,15 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
         </div>
 
-        {/* Desktop Primary Navigation Bar (7 Unified Modules) */}
-        <nav className="hidden xl:flex items-center gap-1 bg-[#0F172A]/80 p-1.5 rounded-full border border-[#00E5FF]/20 shadow-glass">
+        {/* Desktop Primary Navigation Bar (8 Unified Modules) */}
+        <nav className="hidden lg:flex items-center gap-0.5 2xl:gap-1 bg-[#0F172A]/80 p-1 rounded-full border border-[#00E5FF]/20 shadow-glass">
           {navItems.map((item) => {
             const isActive = activeTab === item.id;
             return (
               <button
                 key={item.id}
                 onClick={() => setActiveTab(item.id)}
-                className={`relative flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold transition-all duration-200 ${
+                className={`relative flex items-center gap-1.5 px-2.5 2xl:px-3 py-1.5 rounded-full text-[11px] 2xl:text-xs font-mono font-bold transition-all duration-200 ${
                   isActive
                     ? 'text-black font-semibold'
                     : 'text-slate-300 hover:text-white hover:bg-white/5'
@@ -94,7 +94,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   />
                 )}
                 <span className="relative z-10">{item.icon}</span>
-                <span className="relative z-10">{item.label}</span>
+                <span className="relative z-10 whitespace-nowrap">{item.label}</span>
               </button>
             );
           })}
@@ -108,7 +108,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             className="p-2 rounded-xl bg-slate-900 border border-[#00E5FF]/30 text-[#00E5FF] hover:bg-[#00E5FF]/10 transition-all text-xs font-mono font-bold flex items-center gap-1.5"
           >
             <QrCode className="w-4 h-4" />
-            <span className="hidden sm:inline">QR Profile</span>
+            <span className="hidden xl:inline">QR Profile</span>
           </button>
 
           <button
@@ -117,7 +117,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             className="p-2 rounded-xl bg-slate-900 border border-purple-500/30 text-purple-400 hover:bg-purple-500/10 transition-all text-xs font-mono font-bold flex items-center gap-1.5"
           >
             <FileText className="w-4 h-4" />
-            <span className="hidden sm:inline">Export PDF</span>
+            <span className="hidden xl:inline">Export PDF</span>
           </button>
 
           <motion.button
@@ -148,7 +148,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               className="p-2 rounded-xl bg-slate-900 border border-slate-700 text-slate-300 hover:text-white hover:border-rose-500/50 transition-all text-xs font-mono font-bold flex items-center gap-1.5"
             >
               <LogOut className="w-4 h-4 text-slate-400" />
-              <span className="hidden md:inline">Sign Out</span>
+              <span className="hidden xl:inline">Sign Out</span>
             </button>
           )}
         </div>
@@ -156,7 +156,7 @@ export const Navbar: React.FC<NavbarProps> = ({
       </div>
 
       {/* Mobile Navigation Row */}
-      <div className="flex xl:hidden overflow-x-auto gap-2 pt-3 pb-1 border-t border-slate-800/60 mt-2 scrollbar-none">
+      <div className="flex lg:hidden overflow-x-auto gap-2 pt-3 pb-1 border-t border-slate-800/60 mt-2 scrollbar-none px-4">
         {navItems.map((item) => (
           <button
             key={item.id}
