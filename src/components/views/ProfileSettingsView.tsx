@@ -1,19 +1,21 @@
 import React, { useState } from 'react';
-import { User, Pill, Phone, Lock, ShieldCheck } from 'lucide-react';
+import { User, Pill, Phone, Lock, ShieldCheck, Shield } from 'lucide-react';
 import { ProfileView } from './ProfileView';
 import { EthicalAICenterView } from './eternamind/EthicalAICenterView';
+import { SecurityDevicesView } from '../auth/SecurityDevicesView';
 import { mockPatient } from '../../data/mockPatientData';
 
-export type SettingsSubTab = 'profile' | 'prescriptions' | 'contacts' | 'privacy';
+export type SettingsSubTab = 'profile' | 'security-devices' | 'prescriptions' | 'contacts' | 'privacy';
 
 export const ProfileSettingsView: React.FC = () => {
   const [subTab, setSubTab] = useState<SettingsSubTab>('profile');
 
   const subNavItems: { id: SettingsSubTab; label: string; icon: React.ReactNode }[] = [
     { id: 'profile', label: 'User & EHR Profile', icon: <User className="w-4 h-4 text-[#00E5FF]" /> },
-    { id: 'prescriptions', label: 'Prescriptions & Stack', icon: <Pill className="w-4 h-4 text-[#00FFB2]" /> },
-    { id: 'contacts', label: 'Emergency Contacts', icon: <Phone className="w-4 h-4 text-purple-400" /> },
-    { id: 'privacy', label: 'Privacy & Consent Controls', icon: <Lock className="w-4 h-4 text-[#00E5FF]" /> },
+    { id: 'security-devices', label: 'Security & Devices', icon: <Shield className="w-4 h-4 text-[#00FFB2]" /> },
+    { id: 'prescriptions', label: 'Prescriptions & Stack', icon: <Pill className="w-4 h-4 text-purple-400" /> },
+    { id: 'contacts', label: 'Emergency Contacts', icon: <Phone className="w-4 h-4 text-[#00E5FF]" /> },
+    { id: 'privacy', label: 'Privacy & Consent Controls', icon: <Lock className="w-4 h-4 text-slate-300" /> },
   ];
 
   return (
@@ -27,14 +29,14 @@ export const ProfileSettingsView: React.FC = () => {
           <div>
             <h1 className="text-2xl font-extrabold text-white">Profile & Settings Workspace</h1>
             <p className="text-xs text-slate-300 font-mono">
-              EHR Health Records, Active Supplement Stack, Satellite Contacts & Privacy Controls
+              EHR Health Records, Security & Trusted Devices, Supplement Stack & Privacy Controls
             </p>
           </div>
         </div>
 
         <div className="flex items-center gap-2 text-xs font-mono text-[#00FFB2] px-3 py-1.5 rounded-full bg-[#00FFB2]/10 border border-[#00FFB2]/30">
           <ShieldCheck className="w-4 h-4" />
-          <span>EHR Verified • End-to-End Encrypted</span>
+          <span>EHR Verified • Permanent Multi-Device Access</span>
         </div>
       </div>
 
@@ -60,6 +62,7 @@ export const ProfileSettingsView: React.FC = () => {
 
       <div>
         {subTab === 'profile' && <ProfileView patient={mockPatient} />}
+        {subTab === 'security-devices' && <SecurityDevicesView />}
 
         {subTab === 'prescriptions' && (
           <div className="glass-panel p-6 rounded-3xl space-y-4">

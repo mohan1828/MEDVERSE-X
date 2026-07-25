@@ -19,6 +19,26 @@ export type AuthScreen =
   | 'onboarding'
   | 'platform';
 
+export interface DeviceSession {
+  device_id: string;
+  device_name: string;
+  browser: string;
+  os: string;
+  location: string;
+  ip_address: string;
+  last_active: string;
+  is_current: boolean;
+  created_at: string;
+}
+
+export interface LoginHistoryEntry {
+  id: string;
+  timestamp: string;
+  device: string;
+  location: string;
+  status: string;
+}
+
 export interface AuthUser {
   id: string;
   name: string;
@@ -28,6 +48,7 @@ export interface AuthUser {
   role: UserRole;
   avatarUrl?: string;
   isOnboarded: boolean;
+  isEmailVerified?: boolean;
   twoFactorEnabled: boolean;
   createdAt: string;
   lastLoginAt: string;

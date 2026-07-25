@@ -15,6 +15,14 @@ class UserSignup(BaseModel):
     country: Optional[str] = "United States"
     role: Optional[str] = "patient"
 
+class VerifyEmailRequest(BaseModel):
+    email: str
+    otp_code: str
+
+class RenameDeviceRequest(BaseModel):
+    device_id: str
+    new_name: str
+
 class Token(BaseModel):
     access_token: str
     token_type: str
