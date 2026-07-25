@@ -12,13 +12,17 @@ import { ProfileSettingsView } from './components/views/ProfileSettingsView';
 import { DemoVideoModal } from './components/modals/DemoVideoModal';
 import { MedicalQRModal } from './components/modals/MedicalQRModal';
 import { PDFExportModal } from './components/modals/PDFExportModal';
+import { GlobalSearchModal } from './components/modals/GlobalSearchModal';
+import { NotificationCenterModal } from './components/modals/NotificationCenterModal';
+import { AppointmentBookingModal } from './components/modals/AppointmentBookingModal';
 
 import { AuthProvider, useAuth } from './context/AuthContext';
-import { LandingPage } from './components/auth/LandingPage';
-import { LoginPage } from './components/auth/LoginPage';
-import { SignupPage } from './components/auth/SignupPage';
-import { OTPVerificationModal } from './components/auth/OTPVerificationModal';
-import { ForgotPasswordModal } from './components/auth/ForgotPasswordModal';
+import { LandingPage } from './pages/auth/LandingPage';
+import { LoginPage } from './pages/auth/LoginPage';
+import { SignupPage } from './pages/auth/SignupPage';
+import { ForgotPasswordPage } from './pages/auth/ForgotPasswordPage';
+import { OTPVerificationPage } from './pages/auth/OTPVerificationPage';
+import { ResetPasswordPage } from './pages/auth/ResetPasswordPage';
 import { OnboardingWizard } from './components/auth/OnboardingWizard';
 
 function MainContent() {
@@ -28,6 +32,9 @@ function MainContent() {
   const [isDemoOpen, setIsDemoOpen] = useState<boolean>(false);
   const [isQRModalOpen, setIsQRModalOpen] = useState<boolean>(false);
   const [isPDFModalOpen, setIsPDFModalOpen] = useState<boolean>(false);
+  const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
+  const [isNotificationOpen, setIsNotificationOpen] = useState<boolean>(false);
+  const [isAppointmentOpen, setIsAppointmentOpen] = useState<boolean>(false);
 
   useEffect(() => {
     if (targetTab) {
@@ -43,8 +50,9 @@ function MainContent() {
   if (screen === 'landing') return <LandingPage />;
   if (screen === 'login') return <LoginPage />;
   if (screen === 'signup') return <SignupPage />;
-  if (screen === 'otp') return <OTPVerificationModal />;
-  if (screen === 'forgot-password') return <ForgotPasswordModal />;
+  if (screen === 'otp') return <OTPVerificationPage />;
+  if (screen === 'forgot-password') return <ForgotPasswordPage />;
+  if (screen === 'reset-password') return <ResetPasswordPage />;
   if (screen === 'onboarding') return <OnboardingWizard />;
 
   return (
@@ -61,6 +69,9 @@ function MainContent() {
         triggerEmergency={triggerEmergency}
         onOpenQRModal={() => setIsQRModalOpen(true)}
         onOpenPDFModal={() => setIsPDFModalOpen(true)}
+        onOpenSearchModal={() => setIsSearchOpen(true)}
+        onOpenNotificationModal={() => setIsNotificationOpen(true)}
+        onOpenAppointmentModal={() => setIsAppointmentOpen(true)}
       />
 
       {/* Main Module Content Router */}
@@ -118,6 +129,22 @@ function MainContent() {
         isOpen={isPDFModalOpen}
         onClose={() => setIsPDFModalOpen(false)}
         patientName="Alexander Vance"
+      />
+
+      <GlobalSearchModal
+        isOpen={isSearchOpen}
+        onClose={() => setIsSearchOpen(false)}
+        onNavigateTab={(tab) => setActiveTab(tab)}
+      />
+
+      <NotificationCenterModal
+        isOpen={isNotificationOpen}
+        onClose={() => setIsNotificationOpen(false)}
+      />
+
+      <AppointmentBookingModal
+        isOpen={isAppointmentOpen}
+        onClose={() => setIsAppointmentOpen(false)}
       />
 
       {/* Footer */}

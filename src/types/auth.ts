@@ -15,6 +15,7 @@ export type AuthScreen =
   | 'signup'
   | 'otp'
   | 'forgot-password'
+  | 'reset-password'
   | 'onboarding'
   | 'platform';
 

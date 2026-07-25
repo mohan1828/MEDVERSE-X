@@ -20,6 +20,9 @@ interface NavbarProps {
   triggerEmergency: () => void;
   onOpenQRModal?: () => void;
   onOpenPDFModal?: () => void;
+  onOpenSearchModal?: () => void;
+  onOpenNotificationModal?: () => void;
+  onOpenAppointmentModal?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -29,6 +32,9 @@ export const Navbar: React.FC<NavbarProps> = ({
   triggerEmergency,
   onOpenQRModal,
   onOpenPDFModal,
+  onOpenSearchModal,
+  onOpenNotificationModal,
+  onOpenAppointmentModal,
 }) => {
   const { user, logout } = useAuth();
 
@@ -101,7 +107,30 @@ export const Navbar: React.FC<NavbarProps> = ({
         </nav>
 
         {/* Right Action Toolbar & Emergency SOS */}
-        <div className="flex items-center gap-2 sm:gap-3">
+        <div className="flex items-center gap-2 sm:gap-2.5">
+          <button
+            onClick={onOpenSearchModal}
+            title="Global Search (Cmd + K)"
+            className="p-2 rounded-xl bg-slate-900 border border-slate-700 text-slate-300 hover:text-[#00E5FF] hover:border-[#00E5FF]/40 transition-all text-xs font-mono font-bold flex items-center gap-1.5"
+          >
+            <span className="text-[11px] font-mono">🔍 Search</span>
+          </button>
+
+          <button
+            onClick={onOpenNotificationModal}
+            title="Notification Center"
+            className="p-2 rounded-xl bg-slate-900 border border-slate-700 text-[#00FFB2] hover:bg-[#00FFB2]/10 transition-all text-xs font-mono font-bold flex items-center gap-1.5"
+          >
+            <span className="text-[11px] font-mono">🔔 Alerts</span>
+          </button>
+
+          <button
+            onClick={onOpenAppointmentModal}
+            title="Schedule Doctor Appointment"
+            className="p-2 rounded-xl bg-slate-900 border border-purple-500/30 text-purple-400 hover:bg-purple-500/10 transition-all text-xs font-mono font-bold flex items-center gap-1.5"
+          >
+            <span className="text-[11px] font-mono hidden xl:inline">📅 Book Consult</span>
+          </button>
           <button
             onClick={onOpenQRModal}
             title="Medical Emergency QR Profile"
